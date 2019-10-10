@@ -15,8 +15,9 @@ def generate_mod_LR_bic():
     up_scale = 4
     mod_scale = 4
     # set data dir
-    sourcedir = '/data/datasets/img'
-    savedir = '/data/datasets/mod'
+    dir_name = 'urban100'
+    sourcedir = 'C:/Users/Heos/Repositorys/BasicSR/data/HR/' + dir_name
+    savedir = 'C:/Users/Heos/Repositorys/BasicSR/data/LR/' + dir_name
 
     saveHRpath = os.path.join(savedir, 'HR', 'x' + str(mod_scale))
     saveLRpath = os.path.join(savedir, 'LR', 'x' + str(up_scale))

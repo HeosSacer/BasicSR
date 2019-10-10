@@ -12,8 +12,9 @@ except ImportError:
     pass
 
 # configurations
-img_folder = '/mnt/SSD/xtwang/BasicSR_datasets/DIV2K800/DIV2K800_sub/*'  # glob matching pattern
-lmdb_save_path = '/mnt/SSD/xtwang/BasicSR_datasets/DIV2K800/DIV2K800_sub.lmdb'
+dir_name = 'compress_rec'
+img_folder = 'C:/Users/Heos/Repositorys/BasicSR/data/HR/' + dir_name + '/*'  # glob matching pattern
+lmdb_save_path = 'C:/Users/Heos/Repositorys/BasicSR/data/lmdb/' + dir_name + '_HR.lmdb'
 meta_info = {'name': 'DIV2K800_sub_GT'}
 mode = 2  # 1 for reading all the images to memory and then writing to lmdb (more memory);
 # 2 for reading several images and then writing to lmdb, loop over (less memory)
@@ -22,9 +23,9 @@ batch = 1000  # Used in mode 2. After batch images, lmdb commits.
 if not lmdb_save_path.endswith('.lmdb'):
     raise ValueError("lmdb_save_path must end with \'lmdb\'.")
 #### whether the lmdb file exist
-if osp.exists(lmdb_save_path):
-    print('Folder [{:s}] already exists. Exit...'.format(lmdb_save_path))
-    sys.exit(1)
+#if osp.exists(lmdb_save_path):
+#    print('Folder [{:s}] already exists. Exit...'.format(lmdb_save_path))
+#    sys.exit(1)
 img_list = sorted(glob.glob(img_folder))
 if mode == 1:
     print('Read images...')
@@ -38,11 +39,11 @@ else:
 
 key_l = []
 resolution_l = []
-pbar = ProgressBar(len(img_list))
+#pbar = ProgressBar(len(img_list))
 env = lmdb.open(lmdb_save_path, map_size=data_size * 10)
 txn = env.begin(write=True)  # txn is a Transaction object
 for i, v in enumerate(img_list):
-    pbar.update('Write {}'.format(v))
+    #pbar.update('Write {}'.format(v))
     base_name = osp.splitext(osp.basename(v))[0]
     key = base_name.encode('ascii')
     data = dataset[i] if mode == 1 else cv2.imread(v, cv2.IMREAD_UNCHANGED)

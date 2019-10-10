@@ -7,31 +7,41 @@ crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
 gpu_ids: [0]
 
 datasets:
-  test_1:  # the 1st test dataset
-    name: set5
-    mode: LQGT
-    dataroot_GT: /mnt/SSD/xtwang/BasicSR_datasets/val_set5/Set5
-    dataroot_LQ: /mnt/SSD/xtwang/BasicSR_datasets/val_set5/Set5_bicLRx4
-  test_2:  # the 2st test dataset
-    name: set14
-    mode: LQGT
-    dataroot_GT: /mnt/SSD/xtwang/BasicSR_datasets/val_set14/Set14
-    dataroot_LQ: /mnt/SSD/xtwang/BasicSR_datasets/val_set14/Set14_bicLRx4
-  test_3:
-    name: bsd100
-    mode: LQGT
-    dataroot_GT: /mnt/SSD/xtwang/BasicSR_datasets/BSD/BSDS100
-    dataroot_LQ: /mnt/SSD/xtwang/BasicSR_datasets/BSD/BSDS100_bicLRx4
+  #test_1:  # the 1st test dataset
+   # name: set5
+   # mode: LQGT
+   # dataroot_GT: C:/Users/Heos/Repositorys/BasicSR/data/Set5 #/mnt/SSD/xtwang/BasicSR_datasets/val_set5/Set5
+   # dataroot_LQ: C:/Users/Heos/Repositorys/BasicSR/data/Set5_bicLRx4
+  #test_2:  # the 2st test dataset
+  #  name: set14
+  #  mode: LQGT
+  #  dataroot_GT: C:/Users/Heos/Repositorys/BasicSR/data/HR/Set14
+  #  dataroot_LQ: C:/Users/Heos/Repositorys/BasicSR/data/LR/Set14/LR
+  #test_3:
+  #  name: bsd100
+  #  mode: LQGT
+  #  dataroot_GT: C:/Users/Heos/Repositorys/BasicSR/data/BSDS100
+  #  dataroot_LQ: C:/Users/Heos/Repositorys/BasicSR/data/BSDS100_bicLRx4
+  #test_4:
+  #  name: urban100
+  #  mode: LQGT
+  #  dataroot_GT: C:/Users/Heos/Repositorys/BasicSR/data/urban100
+  #  dataroot_LQ: C:/Users/Heos/Repositorys/BasicSR/data/urban100_bicLRx4
   test_4:
-    name: urban100
-    mode: LQGT
-    dataroot_GT: /mnt/SSD/xtwang/BasicSR_datasets/urban100
-    dataroot_LQ: /mnt/SSD/xtwang/BasicSR_datasets/urban100_bicLRx4
-  test_5:
     name: div2k100
     mode: LQGT
-    dataroot_GT: /mnt/SSD/xtwang/BasicSR_datasets/DIV2K100/DIV2K_valid_HR
-    dataroot_LQ: /mnt/SSD/xtwang/BasicSR_datasets/DIV2K100/DIV2K_valid_bicLRx4
+    dataroot_GT: C:\\Users\\Heos\\Repositorys\\BasicSR\\data\\HR\\DIV2K800_sub
+    dataroot_LQ: C:\\Users\\Heos\\Repositorys\\BasicSR\\data\\LR\\DIV2K800_sub\\LR
+  test_5:
+    name: compress_rec_SR
+    mode: LQGT
+    dataroot_GT: C:\\Users\\Heos\\Repositorys\\BasicSR\\data\\HR\\compress_rec
+    dataroot_LQ: C:\\Users\\Heos\\Repositorys\\BasicSR\\data\\LR\\compress_rec
+  test_6:  # the 6st test dataset with foreman
+    name: foreman20_40
+    mode: LQGT
+    dataroot_GT: C:/Users/Heos/Repositorys/BasicSR/data/HR/foreman20_40_PNG
+    dataroot_LQ: C:/Users/Heos/Repositorys/BasicSR/data/LR/foreman20_40_PNG_small_rec
 
 
 #### network structures
@@ -45,4 +55,4 @@ network_G:
 
 #### path
 path:
-  pretrain_model_G: ../experiments/pretrained_models/MSRResNetx4.pth
+  pretrain_model_G: ../pretrained_models/MSRResNetx4.pth
